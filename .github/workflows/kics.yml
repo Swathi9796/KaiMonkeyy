@@ -17,11 +17,14 @@ jobs:
       uses: checkmarx/kics-github-action@v1.4
       with:
         # scanning two directories: ./terraform/ ./cfn-templates/ plus a single file
-        path: 'terraform/aws/main.tf'
+        path: 'terraform/aws/db.tf'
         output_path: myResults/
         output_formats: sarif
         ignore_on_exit: results
-    # Display the results in json format
-    - name: display kics results
-      run: |
-        cat myResults/results.json
+        
+        #Uploading the artifacts in Github actions
+    -  name: Use the Upload Artifact GitHub Action
+       uses: actions/upload-artifact@v2
+       with:
+           name: results.sarif
+           path: myResults/results.sarif
