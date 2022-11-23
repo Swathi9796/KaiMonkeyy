@@ -28,3 +28,5 @@ jobs:
        with:
            name: results.sarif
            path: myResults/results.sarif
+           
+           
