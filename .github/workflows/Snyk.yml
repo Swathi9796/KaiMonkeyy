@@ -16,5 +16,5 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: scan-report
-          path: result.sarif
+          path: myResults/results.sarif
      
