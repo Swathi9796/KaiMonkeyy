@@ -12,9 +12,9 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.Snyk_Token }}
           
-      - name: Archive Scan results        
-          uses: actions/upload-artifact@v2        
-          with:                 
-           name: scan-report          
-           path: trivy-results.json
+      - name: Archive Scan results
+        uses: actions/upload-artifact@v2
+        with:
+          name: scan-report
+          path: result.sarif
      
