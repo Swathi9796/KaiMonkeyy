@@ -11,6 +11,9 @@ jobs:
         continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.Snyk_Token }}
+          output_path: myResults/
+          output_formats: sarif
+          ignore_on_exit: results
           
       - name: Archive Scan results
         uses: actions/upload-artifact@v2
