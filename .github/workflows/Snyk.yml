@@ -10,4 +10,8 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          file: 
+          file: terraform/aws/variables.tf,terraform/aws/db.tf
+          
+        
+        
+     
