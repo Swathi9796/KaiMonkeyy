@@ -1,9 +1,10 @@
 name: Snyk_Code_Scan
-on: [push]
+on: 
+push:
+  workflow_dispatch:
 jobs:
-  Snyk_Code_Scan:
-    needs: Code_checkout
-    runs-on: ubuntu-latest    
+
+runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@v1
     - name: Snyk SCA Scanning
