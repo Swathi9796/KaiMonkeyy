@@ -8,8 +8,7 @@ jobs:
       - run: mkdir -p myResults
       - name: Run Snyk to scan the repo files for issues
         uses: snyk/actions/iac@master
-        continue-on-error: true
-        
+        continue-on-error: true 
         env:
           SNYK_TOKEN: ${{ secrets.Snyk_Token }}
         with:
