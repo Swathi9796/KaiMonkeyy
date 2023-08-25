@@ -22,6 +22,7 @@ jobs:
         output_formats: sarif
         ignore_on_exit: results
         
+        
         #Uploading the artifacts in Github actions
     -  name: Use the Upload Artifact GitHub Action
        uses: actions/upload-artifact@v2
