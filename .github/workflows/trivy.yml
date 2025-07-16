@@ -6,22 +6,25 @@ on:
   pull_request:
 jobs:
   build:
-    name: Build
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Trivy vulnerability scanner in IaC mode
+      - name: Create results directory
+        run: mkdir -p results
+
+      - name: Run Trivy in IaC mode
         uses: aquasecurity/trivy-action@0.28.0
         with:
           scan-type: 'config'
-          scan-ref: '.' 
+          scan-ref: 'terraform/aws'  # You can also set this to your checkout_path if set manually
           hide-progress: true
           format: 'sarif'
-          output: 'trivy-results.sarif'
+          output: 'results/trivy-results.sarif'  # relative to workspace
 
-      - name: Upload Trivy scan results to GitHub Security tab
+      - name: Upload Trivy SARIF to GitHub
         uses: github/codeql-action/upload-sarif@v3
         with:
-          sarif_file: 'trivy-results.sarif'
+          sarif_file: 'results/trivy-results.sarif'
+          wait-for-processing: true
